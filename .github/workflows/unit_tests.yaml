@@ -55,6 +55,7 @@ jobs:
     - name: Run unit tests (without coverage)
       run: |
           . ./spack-core/share/spack/setup-env.sh
+          spack config add -f ./.ci/configs/repos.yaml
           PYTHONPATH=${SPACK_ROOT}/lib/spack:${SPACK_ROOT}/lib/spack/external:${PYTHONPATH} python3 -m pytest -v --exitfirst
 
   # Run unit tests on MacOS
@@ -80,6 +81,7 @@ jobs:
     - name: Run unit tests (without coverage)
       run: |
         . ./spack-core/share/spack/setup-env.sh
+        spack config add -f ./.ci/configs/repos.yaml
         PYTHONPATH=${SPACK_ROOT}/lib/spack:${SPACK_ROOT}/lib/spack/external:${PYTHONPATH} python3 -m pytest -v --exitfirst
 
   # Run unit tests on Windows

@@ -77,4 +77,5 @@ jobs:
     - name: Verify Added Checksums
       run: |
         . spack-core/share/spack/setup-env.sh
-        bin/spack ci verify-versions HEAD^1 HEAD
+        spack config add -f ./.ci/configs/repos.yaml
+        spack ci verify-versions HEAD^1 HEAD
