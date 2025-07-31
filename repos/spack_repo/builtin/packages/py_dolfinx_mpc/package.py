@@ -43,6 +43,18 @@ class PyDolfinxMpc(PythonPackage):
     depends_on("py-petsc4py", type=("build", "run"))
 
     variant("numba", default=False, description="numba support")
-    depends_on("py-numba", when="+numba", type=("run"))
+    depends_on("py-numba", when="+numba", type="run")
 
     build_directory = "python"
+
+    def test_python(self):
+        """Test PyDolfinxMPC python"""
+        with test_part(self, "test_import", purpose="import dolfinx_mpc in python"):
+            python = Executable(self.spec["python"].prefix.bin.python)
+            python(*(["-c", "import dolfinx_mpc; print(dolfinx_mpc.__version__)"]))
+        if self.spec.satisfies("+numba"):
+            with test_part(
+                self, "test_numba_import", purpose="import dolfinx_mpc numba wrappers in python"
+            ):
+                python = Executable(self.spec["python"].prefix.bin.python)
+                python(*(["-c", "from dolfinx_mpc.numba import assemble_matrix; assemble_vector"]))
