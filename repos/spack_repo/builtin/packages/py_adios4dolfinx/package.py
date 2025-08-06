@@ -1,4 +1,3 @@
-from marshal import version
 
 from spack_repo.builtin.build_systems.python import PythonPackage
 
