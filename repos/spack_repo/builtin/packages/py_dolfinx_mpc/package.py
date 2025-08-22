@@ -15,10 +15,10 @@ class PyDolfinxMpc(PythonPackage):
 
     license("MIT", checked_by="jorgensd")
 
+    version("main", branch="main")
     version("0.9.3", sha256="efa312cc498e428aab44acccc9bb0c74c200eda005742de7778c8e68fa84e8df")
-    version("0.9.2", sha256="8681def964aef0101b7e35aa377cfbcc4b220a20cfc540ec9058b324031b58c2")
-    version("0.9.1", sha256="2d0c3583b8d69ad4374b0938cd157c9ca48acf50d6969e51ccce8ab14625040e")
-    version("0.9.0", sha256="9b87cd75e3b26b3f92b600e935c45677624c8e169782bf6646265d1e03a0e043")
+    version("0.8.1", sha256="e0254b4a1c9c1456583c1415821946b11b0b2e48dbfee6558da2bbedfe78b461")
+    version("0.7.2", sha256="decf73dac8688ed235b8ee357b763d80a0d477110f35757117c1de649930c71a")
     depends_on("cxx", type="build")  # generated
 
     depends_on("cmake@3.21:", when="@0.9:", type="build")
@@ -29,16 +29,19 @@ class PyDolfinxMpc(PythonPackage):
 
     depends_on("dolfinx-mpc@main", when="@main")
     depends_on("dolfinx-mpc@0.9.3", when="@0.9.3")
-    depends_on("dolfinx-mpc@0.9.2", when="@0.9.2")
-    depends_on("dolfinx-mpc@0.9.1", when="@0.9.1")
-    depends_on("dolfinx-mpc@0.9.0", when="@0.9.0")
+    depends_on("dolfinx-mpc@0.8.1", when="@0.8.1")
+    depends_on("dolfinx-mpc@0.7.2", when="@0.7.2")
 
-    depends_on("py-fenics-dolfinx@main", when="@main")
-    depends_on("py-fenics-dolfinx@0.9", when="@0.9")
+    depends_on("py-fenics-dolfinx@main+petsc4py", when="@main")
+    depends_on("py-fenics-dolfinx@0.9+petsc4py", when="@0.9")
+    depends_on("py-fenics-dolfinx@0.8+petsc4py", when="@0.8")
 
     depends_on("py-nanobind@2:", when="@0.9:", type="build")
-    depends_on("py-scikit-build-core+pyproject@0.10:", when="@0.10:", type="build")
-    depends_on("py-scikit-build-core+pyproject@0.5:", when="@0.8:0.9", type="build")
+    depends_on("py-nanobind@1.8:1.9", when="@0.8", type="build")
+    depends_on("py-scikit-build-core@0.10: +pyproject", when="@0.10:", type="build")
+    depends_on("py-scikit-build-core@0.5: +pyproject", when="@0.8:0.9", type="build")
+    depends_on("py-pybind11@2.7.0:", when="@:0.7", type=("build", "run"))
+    depends_on("py-setuptools@42:", when="@:0.7", type="build")
 
     depends_on("py-petsc4py", type=("build", "run"))
 
