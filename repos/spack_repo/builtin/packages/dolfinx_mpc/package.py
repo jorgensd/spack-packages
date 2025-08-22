@@ -20,13 +20,6 @@ class DolfinxMpc(CMakePackage):
 
     version("0.9.3", sha256="efa312cc498e428aab44acccc9bb0c74c200eda005742de7778c8e68fa84e8df")
     version("0.8.1", sha256="e0254b4a1c9c1456583c1415821946b11b0b2e48dbfee6558da2bbedfe78b461")
-    version(
-        "0.8.0.post1", sha256="bb4803af8bfe53366237dc27dc06085699d5e68e2ffd8098e54614ff207683a8"
-    )
-    version(
-        "0.8.0.post0", sha256="c413c866ba27e02233af4954c819583615d53394ef336c78f137284a63f850b1"
-    )
-    version("0.8.0", sha256="4c77ce49b28b04974205f62dc04d5324168f8d2275f6ee4d7fa24aa4e0ac2eaa")
     version("0.7.2", sha256="decf73dac8688ed235b8ee357b763d80a0d477110f35757117c1de649930c71a")
     version("0.7.1", sha256="eb9595adac26213c731fac53be361f8f4b9e22bd4ba611101b326958949ac9b9")
 
