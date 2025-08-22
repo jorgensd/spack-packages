@@ -10,6 +10,7 @@ class PyDolfinxMpc(PythonPackage):
 
     homepage = "https://www.jsdokken.com/dolfinx_mpc"
     url = "https://github.com/jorgensd/dolfinx_mpc/archive/v0.9.3.tar.gz"
+    git = "https://github.com/jorgensd/dolfinx_mpc.git"
 
     maintainers("jorgensd")
 
