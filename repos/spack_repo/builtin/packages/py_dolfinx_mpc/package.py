@@ -17,21 +17,20 @@ class PyDolfinxMpc(PythonPackage):
     version("main", branch="main")
     version("0.9.3", sha256="efa312cc498e428aab44acccc9bb0c74c200eda005742de7778c8e68fa84e8df")
     version("0.8.1", sha256="e0254b4a1c9c1456583c1415821946b11b0b2e48dbfee6558da2bbedfe78b461")
-    version("0.7.2", sha256="decf73dac8688ed235b8ee357b763d80a0d477110f35757117c1de649930c71a")
 
     variant("numba", default=False, description="numba support")
 
     depends_on("cxx", type="build")
+
     depends_on("cmake@3.21:", when="@0.9:", type="build")
+    depends_on("cmake@3.19:", when="@:0.8", type="build")
     depends_on("py-packaging")
 
     depends_on("python@3.9:", when="@0.8:", type=("build", "run"))
-    depends_on("python@3.8:", when="@0.7", type=("build", "run"))
 
     depends_on("dolfinx-mpc@main", when="@main", type=("build"))
     depends_on("dolfinx-mpc@0.9.3", when="@0.9.3", type=("build"))
     depends_on("dolfinx-mpc@0.8.1", when="@0.8.1", type=("build"))
-    depends_on("dolfinx-mpc@0.7.2", when="@0.7.2", type=("build"))
 
     depends_on("py-fenics-dolfinx@main+petsc4py", when="@main")
     depends_on("py-fenics-dolfinx@0.9+petsc4py", when="@0.9")
@@ -41,8 +40,6 @@ class PyDolfinxMpc(PythonPackage):
     depends_on("py-nanobind@1.8:1.9", when="@0.8", type="build")
     depends_on("py-scikit-build-core@0.10: +pyproject", when="@0.10:", type="build")
     depends_on("py-scikit-build-core@0.5: +pyproject", when="@0.8:0.9", type="build")
-    depends_on("py-pybind11@2.7.0:", when="@:0.7", type=("build", "run"))
-    depends_on("py-setuptools@42:", when="@:0.7", type="build")
 
     depends_on("py-petsc4py", type=("build", "run"))
     depends_on("py-numba", when="+numba", type="run")
