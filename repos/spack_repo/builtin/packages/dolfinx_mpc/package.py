@@ -32,7 +32,7 @@ class DolfinxMpc(CMakePackage):
     depends_on("fenics-dolfinx@0.9+petsc", when="@0.9")
     depends_on("fenics-dolfinx@0.8+petsc", when="@0.8")
     depends_on("fenics-dolfinx@0.7+petsc", when="@0.7")
-
+    depends_on("boost@1.70:+timer+filesystem", when="@:0.9")
     depends_on("cmake@3.21:", when="@0.9:", type="build")
     depends_on("cmake@3.19:", when="@:0.8", type="build")
 
