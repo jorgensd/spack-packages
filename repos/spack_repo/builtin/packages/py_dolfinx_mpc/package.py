@@ -26,7 +26,7 @@ class PyDolfinxMpc(PythonPackage):
 
     depends_on("py-packaging")
 
-    depends_on("python@3.9:", when="@0.9:", type=("build", "run"))
+    depends_on("python@3.8:", when="@0.7:", type=("build", "run"))
 
     depends_on("dolfinx-mpc@main", when="@main")
     depends_on("dolfinx-mpc@0.9.3", when="@0.9.3")
@@ -43,6 +43,10 @@ class PyDolfinxMpc(PythonPackage):
     depends_on("py-scikit-build-core@0.5: +pyproject", when="@0.8:0.9", type="build")
     depends_on("py-pybind11@2.7.0:", when="@:0.7", type=("build", "run"))
     depends_on("py-setuptools@42:", when="@:0.7", type="build")
+
+    depends_on("py-numpy@1.21:", type=("build", "run"))
+    depends_on("py-mpi4py", type=("build", "run"))
+    depends_on("py-cffi@:1.16", type=("build", "run"))
 
     depends_on("py-petsc4py", type=("build", "run"))
 
